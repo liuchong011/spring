@@ -5,7 +5,10 @@
   tasks:
     - name: copy
       get_url: url=http://114.116.45.202:8081/repository/NexusArtifactUploader/apim/apim/{{version}}/apim-{{version}}.jar dest=/root/jar mode=0440
+      ignore_errors: yes
     - name: kill
       shell: ps -ef | grep apim | awk '{ print $2 }' | sudo xargs kill -9
+      ignore_errors: yes
     - name: run
       shell: nohup java -jar /root/jar/apim-{{version}}.jar --server.port=8080 &
+      ignore_errors: yes
