@@ -4,6 +4,6 @@
   hosts: '{{ hosts }}'
   tasks:
     - name: copy
-      shell: url=http://114.116.45.202:8081/repository/NexusArtifactUploader/apim/apim/{{version}}//apim-{{version}}.jar dest=/root/jar mode=0440
+      get_url: url=http://114.116.45.202:8081/repository/NexusArtifactUploader/apim/apim/{{version}}/apim-{{version}}.jar dest=/root/jar mode=0440
     - name: run
       shell: java -jar /root/jar/apim-{{version}}.jar &
