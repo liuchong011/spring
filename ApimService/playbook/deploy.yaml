@@ -10,5 +10,5 @@
       shell: ps -ef | grep apim | awk '{ print $2 }' | sudo xargs kill -9
       ignore_errors: yes
     - name: run
-      shell: nohup java -jar /root/jar/apim-{{version}}.jar --server.port=8080 &
+      shell: nohup java -jar /root/jar/apim-{{version}}.jar --server.port=8080 --server.tomcat.basedir=/root/log &
       ignore_errors: yes
